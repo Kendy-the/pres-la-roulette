@@ -5,12 +5,11 @@
  */
  
 function getNbOrdi(){
-    preNombreOrdi = Math.random();
+    let preNombreOrdi = Math.random();
     return preNombreOrdi;
 }
 
 let choixIntervale = 0;
-let preNombreOrdi = 0;
 let nombreOrdi = getNbOrdi();
 let chance = 4;
 let verifie = false;
@@ -49,7 +48,7 @@ function processFormData() {
     let nombreUser = document.getElementById("nombreUser").value;
     let nombreUserVerifie = parseInt(nombreUser);
 
-    if((chance == 4) && (nombreUserVerifie < 0 || nombreUserVerifie > 100)){
+    if((chance == 4) && (nombreUserVerifie < 0 || nombreUserVerifie > choixIntervale)){
         alert('Entre un nombre compris entre 0 et 100\n');
         window.location.replace(window.location.href);
     }
