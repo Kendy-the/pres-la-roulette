@@ -1,0 +1,31 @@
+.wrapper{
+  width:360px;
+  padding: 10px;
+  margin: 50% auto;
+  border: solid 2px grey;
+  border-radius: 10px;
+}
+.wrapper h1{
+  text-align: center;
+}
+body{
+  display: flex;
+  align-items: center;
+  background-color: lightgrey;
+  height: 90vh;
+}
+form input[type="submit"]{
+  float: right;
+  margin-bottom: 10px;
+}
+#p1{
+  color:green;
+}
+#p2{
+  color:red;
+}
+#p3{
+  font-style: italic;
+  font-weight: bold;
+  color:#444;
+}
