@@ -49,7 +49,7 @@ function processFormData() {
     let nombreUserVerifie = parseInt(nombreUser);
 
     if((chance == 4) && (nombreUserVerifie < 0 || nombreUserVerifie > choixIntervale)){
-        alert('Entre un nombre compris entre 0 et '+choixIntervale'\n');
+        alert('Entre un nombre compris entre 0 et l'intervalle choisie\n');
         window.location.replace(window.location.href);
     }
     console.log("nombreOdi :"+nombreOrdi);
