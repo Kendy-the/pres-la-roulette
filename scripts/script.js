@@ -5,21 +5,30 @@
  */
  
 function getNbOrdi(){
-    let nombreOrdi = Math.random()*100;
-    nombreOrdi = parseInt(nombreOrdi);
-    
-    return nombreOrdi;
+    preNombreOrdi = Math.random();
+    return preNombreOrdi;
 }
 
+let choixIntervale = 0;
+let preNombreOrdi = 0;
 let nombreOrdi = getNbOrdi();
 let chance = 4;
 let verifie = false;
 
 function formulaire(){
     let intervale = "Entre un nombre compris entre 0 et "+
-    "100<br>Vous avez "+(chance+1)+" chance";
+    "l'intervale choisie<br>Vous avez "+(chance+1)+" chance";
     
     document.write('<form id="myForm">'+
+        '<label>Choix d\'un intervale </label>'+
+        '<select name="interval" id="interval">'+
+            '<option value="100">100</option>'+
+            '<option value="200">200</option>'+
+            '<option value="500">500</option>'+
+            '<option value="600">600</option>'+
+            '<option value="800">800</option>'+
+            '<option value="1000">1000</option>'+
+        '</select><br>'+
         '<p>'+intervale+'</p>'+
         '<label for="nombreUser">Nombre : </label>'+
         '<input type="text" id="nombreUser" name="nombreUser"'+
@@ -31,6 +40,12 @@ function formulaire(){
 //Traitement des entres users
 function processFormData() {
     
+    choixIntervale = document.getElementById("interval").value;
+    if(chance == 4){
+        nombreOrdi *= choixIntervale;
+        nombreOrdi = parseInt(nombreOrdi);
+    }
+
     let nombreUser = document.getElementById("nombreUser").value;
     let nombreUserVerifie = parseInt(nombreUser);
 
@@ -40,25 +55,32 @@ function processFormData() {
     }
     console.log("nombreOdi :"+nombreOrdi);
     console.log("NombreUser : " + nombreUser);
+    console.log("Intervale :"+choixIntervale);
     
     if(nombreOrdi == nombreUser){
         verifie = true;
     }else{
         
         if(nombreUser < nombreOrdi){
+            /*
             if(chance == 1){
                 document.getElementById('p1').innerHTML = 'Entre un nombre entre '+(nombreOrdi-2)+' et '+(nombreOrdi+2);
             }else{
                 document.getElementById('p1').innerHTML = 'Entre un nombre plus grand !';
             }
+            */
+            document.getElementById('p1').innerHTML = 'Entre un nombre plus grand !';
             document.getElementById('p2').innerHTML = nombreUser;
             document.getElementById('p3').innerHTML = 'il te reste '+chance+' chance';
         }else{
+            /*
             if(chance == 1){
                 document.getElementById('p1').innerHTML = 'Entre un nombre entre '+(nombreOrdi-2)+' et '+(nombreOrdi+2);
             }else{
                 document.getElementById('p1').innerHTML = 'Entre un nombre plus petit !';
             }
+            */
+            document.getElementById('p1').innerHTML = 'Entre un nombre plus petit !';
             document.getElementById('p2').innerHTML = nombreUser;
             document.getElementById('p3').innerHTML = 'il te reste '+chance+' chance';
         }
